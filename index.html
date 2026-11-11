@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Nur!</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f8efff, #fff0f5);
+  color: #665477;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255,255,255,0.85);
+  padding: 40px 28px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 15px 45px #c7a7d544;
+  border: 1px solid white;
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.emoji {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  color: #9670b6;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.subtitle {
+  margin-bottom: 25px;
+  color: #9c8ba9;
+}
+
+button {
+  border: none;
+  background: linear-gradient(135deg, #c9a8e8, #e9b6d2);
+  color: white;
+  padding: 14px 27px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+  margin-top: 22px;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px #c9a8e866;
+}
+
+.hidden {
+  display: none;
+}
+
+.envelope {
+  font-size: 85px;
+  cursor: pointer;
+  margin: 20px;
+  transition: .3s;
+}
+
+.envelope:hover {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.letter {
+  background: #fff8fd;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: left;
+  margin-top: 20px;
+  border: 1px dashed #d7b5e8;
+}
+
+.letter p {
+  margin-bottom: 14px;
+}
+
+.signature {
+  text-align: right;
+  color: #a27cba;
+  font-weight: bold;
+}
+
+.cake {
+  font-size: 75px;
+  margin: 15px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  50% {transform: translateY(-9px);}
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #ad9bb8;
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.piece {
+  position: absolute;
+  top: -15px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="confetti"></div>
+
+<div class="container">
+
+  <!-- HALAMAN PEMBUKA -->
+  <div class="card" id="page1">
+    <div class="emoji">🎀</div>
+    <p class="subtitle">A little surprise is waiting for you</p>
+    <h1>Happy Birthday!</h1>
+    <p>
+      Today is all about you.<br>
+      Someone has prepared something special.
+    </p>
+    <button onclick="openPage(2)">Open your surprise ✨</button>
+    <div class="footer">Made with love ♡</div>
+  </div>
+
+  <!-- HALAMAN AMPLOP -->
+  <div class="card hidden" id="page2">
+    <div class="emoji">💌</div>
+    <h1>For Nur</h1>
+    <p>There's a little letter just for you.</p>
+
+    <div class="envelope" onclick="openPage(3)">
+      💌
+    </div>
+
+    <p>Tap the envelope to open it ♡</p>
+  </div>
+
+  <!-- HALAMAN SURAT -->
+  <div class="card hidden" id="page3">
+    <div class="emoji">💜</div>
+    <h1>Dear Nur,</h1>
+
+    <div class="letter">
+      <p>
+        Happy birthday, Nur! 🥳
+      </p>
+
+      <p>
+        Selamat bertambah usia!
+        Semoga di umur yang baru ini,
+        kamu selalu diberikan kesehatan,
+        kebahagiaan, dan kelancaran dalam
+        setiap hal yang sedang kamu perjuangkan.
+      </p>
+
+      <p>
+        Terima kasih sudah menjadi bagian
+        dari cerita dan kenangan yang ada.
+        Semoga hal-hal baik selalu menemukan
+        jalan untuk datang kepadamu.
+      </p>
+
+      <p>
+        Jangan lupa bahagia, jangan terlalu
+        keras sama diri sendiri, dan tetap
+        jadi Nur yang menyenangkan!
+      </p>
+
+      <p>
+        Wishing you endless happiness
+        and beautiful memories. ♡
+      </p>
+
+      <p class="signature">
+        With love,<br>
+        Your friend ♡
+      </p>
+    </div>
+
+    <button onclick="openPage(4)">
+      One more surprise 🎁
+    </button>
+  </div>
+
+  <!-- HALAMAN KEJUTAN -->
+  <div class="card hidden" id="page4">
+    <div class="cake">🎂</div>
+    <h1>Make a Wish!</h1>
+
+    <p>
+      Close your eyes for a moment,<br>
+      make a wish, and believe in it.
+    </p>
+
+    <button onclick="celebrate()">
+      Celebrate! 🎉
+    </button>
+
+    <p id="finalMessage" class="hidden"
+       style="margin-top:25px;">
+      Once again, happy birthday, Nur! 💗
+      <br>
+      Semoga semua doa baikmu menjadi nyata.
+      <br>
+      You deserve all the happiness! ♡
+    </p>
+
+    <div class="footer">
+      This little website was made especially for you.
+    </div>
+  </div>
+
+</div>
+
+<script>
+function openPage(number) {
+  document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('hidden');
+  });
+
+  document.getElementById('page' + number)
+    .classList.remove('hidden');
+
+  if (number === 4) {
+    confetti();
+  }
+}
+
+function confetti() {
+  const area = document.getElementById('confetti');
+  const symbols = ['💜', '💗', '✨', '🌸', '🎀'];
+
+  for (let i = 0; i < 35; i++) {
+    const piece = document.createElement('span');
+    piece.className = 'piece';
+    piece.innerText =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.animationDuration =
+      (2 + Math.random() * 3) + 's';
+
+    area.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 5000);
+  }
+}
+
+function celebrate() {
+  document.getElementById('finalMessage')
+    .classList.remove('hidden');
+
+  confetti();
+}
+</script>
+
+</body>
+</html>
